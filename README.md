@@ -7,7 +7,7 @@ This is a repo for my own education, however, there should be a base here of Typ
 ## How to Run
 Clone the repo and in the directory run the following commands:
 `npm init -y`
-`npm install --save-dev electron`
+`npm preinstall`
 `npm start`
 
 ## Next Steps
