@@ -13,7 +13,7 @@ export default class Main {
                 nodeIntegration: true
             }
         });
-        Main.mainWindow.loadURL('file://' + __dirname + '/index.html');
+        Main.mainWindow.loadURL('file://' + __dirname + '/../index.html');
         Main.mainWindow.on('closed', Main.onClose);
     }
 
