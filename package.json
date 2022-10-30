@@ -15,5 +15,9 @@
   "devDependencies": {
     "electron": "^21.2.0",
     "typescript": "^4.8.4"
+  },
+  "dependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.19.6",
+    "commonjs": "0.0.1"
   }
 }

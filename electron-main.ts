@@ -1,4 +1,4 @@
-import {BrowserWindow} from 'electron';
+import {BrowserWindow, ipcMain, Notification} from 'electron';
 
 export default class Main {
     static mainWindow: Electron.BrowserWindow;
@@ -10,19 +10,29 @@ export default class Main {
             width: 1200,
             height: 800,
             webPreferences: {
-                nodeIntegration: true
+                nodeIntegration: true,
+                contextIsolation: false
             }
         });
         Main.mainWindow.loadURL('file://' + __dirname + '/../index.html');
         Main.mainWindow.on('closed', Main.onClose);
 
         Main.mainWindow.webContents.openDevTools();
+
+        ipcMain.handle('show-notification', (event, ...args) => {
+            const notification = {
+                title: 'New Task',
+                body: 'Added ${args[0]}'
+            }
+
+            new Notification(notification).show
+        })
     }
 
     private static onClose(){
         Main.mainWindow = null;
     }
-    
+
     private static onWindowAllClosed() {
         if(process.platform !== 'darwin'){
             Main.application.quit();
