@@ -15,12 +15,14 @@ export default class Main {
         });
         Main.mainWindow.loadURL('file://' + __dirname + '/../index.html');
         Main.mainWindow.on('closed', Main.onClose);
+
+        Main.mainWindow.webContents.openDevTools();
     }
 
     private static onClose(){
         Main.mainWindow = null;
     }
-
+    
     private static onWindowAllClosed() {
         if(process.platform !== 'darwin'){
             Main.application.quit();
