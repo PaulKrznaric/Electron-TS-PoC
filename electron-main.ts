@@ -11,22 +11,14 @@ export default class Main {
             height: 800,
             webPreferences: {
                 nodeIntegration: true,
-                contextIsolation: false
+                contextIsolation: false,
+                enableRemoteModule: true,
             }
         });
         Main.mainWindow.loadURL('file://' + __dirname + '/../index.html');
         Main.mainWindow.on('closed', Main.onClose);
 
         Main.mainWindow.webContents.openDevTools();
-
-        ipcMain.handle('show-notification', (event, ...args) => {
-            const notification = {
-                title: 'New Task',
-                body: 'Added ${args[0]}'
-            }
-
-            new Notification(notification).show
-        })
     }
 
     private static onClose(){
@@ -52,3 +44,12 @@ export default class Main {
         Main.application.on('ready', Main.onReady);
     }
 }
+
+ipcMain.handle('show-notification', (event, ...args) => {
+    const notification = {
+        title: 'New Task',
+        body: `Added ${args[0]}`
+    }
+
+    new Notification(notification).show()
+});
