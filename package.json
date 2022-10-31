@@ -4,20 +4,28 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "npm run build && electron ./compiled/electron-app",
+    "start": "electron-forge start",
     "build": "./node_modules/.bin/tsc",
     "preinstall": "npm install --save-dev electron && npm install --save-dev typescript",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.70",
+    "@electron-forge/maker-deb": "^6.0.0-beta.70",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.70",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.70",
+    "@electron-forge/maker-zip": "^6.0.0-beta.70",
     "electron": "^21.2.0",
     "typescript": "^4.8.4"
   },
   "dependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.19.6",
-    "commonjs": "0.0.1"
+    "commonjs": "0.0.1",
+    "electron-squirrel-startup": "^1.0.0"
   }
 }

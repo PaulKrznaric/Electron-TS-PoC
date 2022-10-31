@@ -13,7 +13,3 @@ npm init -y
 npm install
 npm start
 ```
-
-
-## Next Steps
-I'd like to test what degree of functionality I can offload onto the user system inside of Electronp
