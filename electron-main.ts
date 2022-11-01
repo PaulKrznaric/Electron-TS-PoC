@@ -15,8 +15,12 @@ export default class Main {
                 enableRemoteModule: true,
             }
         });
+
+        Main.mainWindow.webContents.openDevTools();
+        
         Main.mainWindow.loadURL('file://' + __dirname + '/../index.html');
         Main.mainWindow.on('closed', Main.onClose);
+
 
     }
 
